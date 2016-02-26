@@ -1,6 +1,7 @@
 require 'httparty'
 require 'pry'
 require_relative 'pets'
+require 'colorize'
 puts '
 ▄▄▄▄▄▄▄▄▄▄▄       ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄        ▄▄▄▄▄▄▄▄▄▄▄
 ▐░░░░░░░░░░░▌     ▐░░▌      ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌      ▐░░░░░░░░░░░▌
@@ -23,17 +24,12 @@ puts '
 ▐░▌               ▐░▌     ▐░▌               ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌
 ▐░█▄▄▄▄▄▄▄▄▄  ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄      ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌     ▐░▌
 ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░▌      ▐░▌
-▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀       ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀        ▀
-​
-​
-'
-
+▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀       ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀        ▀'.colorize(:blue)
 puts 'What is your zipcode?'
 @animal_location = gets.strip.downcase
 puts 'Are you a dog or cat person?'
 gets.strip
-
-puts "Let's not get ahead of ourselves just yet. Do you live an a house or an apartment?"
+puts "Let's not get ahead of ourselves just yet. Do you live an a house or an apartment?".colorize(:red)
  living = gets.strip.downcase
   if living == "house"
    puts "Alright, do you even lift bro?(y/n)"
@@ -70,7 +66,6 @@ end
    puts "TV will rot your brain. Instead, adopt this rambunctious little dude to keep your brain and body active!"
    @animal_sex = "M"
   end
-
 #### dog questions
   if lift == "y" || lift == "yes"
    puts "Yeah you look great! Would you say that you're patient?(y/n)"
@@ -107,7 +102,7 @@ end
    @animal_sex = "M"
    @animal_age = "Baby"
   end
-
+##
  if weak_veggie == "cucumber"
   puts "You need a older man dog!!"
   @animal_sex = "M"
@@ -117,5 +112,4 @@ end
   @animal_sex = "M"
   @animal_age = "Adult"
  end
- 
 FindPet.new(@animal_type, @animal_size, @animal_age, @animal_sex, @animal_location).random_animal
