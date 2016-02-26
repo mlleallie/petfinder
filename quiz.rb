@@ -1,5 +1,6 @@
 require 'httparty'
 require 'pry'
+require_relative 'pets'
 puts '
 ▄▄▄▄▄▄▄▄▄▄▄       ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄        ▄▄▄▄▄▄▄▄▄▄▄
 ▐░░░░░░░░░░░▌     ▐░░▌      ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌      ▐░░░░░░░░░░░▌
@@ -52,22 +53,29 @@ end
 
   if gender == "ladies"
    puts "Great! Check out this lonely lady cat who's just waiting for you to adopt her!"
+   FindPet.new("cat", "L", "Adult", "F", "78751").random_animal
 
   elsif gender == "gents"
    puts "Awesome, this old dude is just waiting for your snuggles."
+   FindPet.new("cat", "L", "Senior", "M", "78751").random_animal
+
   end
 
   if activity == "book" || activity == "read a book"
    puts "Cool, reading is great but not for your body. Get in some exercise playing with this tiny adorable lady kitty!"
+   FindPet.new("cat", "S", "Baby", "F", "78751").random_animal
+
   elsif activity == "netflix"
    puts "TV will rot your brain. Instead, adopt this rambunctious little dude to keep your brain and body active!"
+   FindPet.new("cat", "S", "Baby", "M", "78751").random_animal
+
   end
 #### dog questions
   if lift == "y" || lift == "yes"
    puts "Yeah you look great! Would you say that you're patient?(y/n)"
    strong_patient = gets.strip.downcase
   elsif lift == "n" || lift == "no"
-   puts "You don't need to, you look great! Would you say that you're(y/n)"
+   puts "You don't need to, you look great! Would you say that you're patient?(y/n)"
    weak_patient = gets.strip.downcase
   end
 
@@ -84,18 +92,33 @@ end
   end
 
   if veggie == "cucumber"
-   puts "You need a  young big dog!!"
+   puts "You need a young, female large dog!!"
+   FindPet.new("dog", "L", "Baby", "F", "78751").random_animal
+
   elsif veggie == "pea"
-   puts "You should get a  young little dog"
+   puts "You should get a young, female little dog"
+   FindPet.new("dog", "S", "Baby", "F", "78751").random_animal
+
   elsif veggie == "cauliflower"
-   puts "Wow a medium dog for a  young medium tasting vegetable"
+   puts "Wow a medium dog for a young medium tasting vegetable"
+   FindPet.new("dog", "M", "Baby", "F", "78751").random_animal
+
   end
 
 
  if weak_veggie == "cucumber"
-  puts "You need a older big dog!!"
+  puts "You need a older man dog!!"
+  FindPet.new("dog", "L", "Senior", "M", "78751").random_animal
+
+
  elsif weak_veggie == "pea"
-  puts "You should older get a little dog"
+  puts "You should older get a man little dog"
+  FindPet.new("dog", "S", "Adult", "M", "78751").random_animal
+
+
  elsif   weak_veggie == "cauliflower"
-  puts "Wow an older young medium dog for a medium tasting vegetable"
+  puts "Wow an older medium man dog for a medium tasting vegetable"
+  FindPet.new("dog", "M", "Adult", "M", "78751").random_animal
+
+
  end
