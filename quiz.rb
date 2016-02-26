@@ -1,7 +1,8 @@
 require 'httparty'
 require 'pry'
+require 'colorize'
 require_relative 'pets'
-puts '
+puts "
 ▄▄▄▄▄▄▄▄▄▄▄       ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄        ▄▄▄▄▄▄▄▄▄▄▄
 ▐░░░░░░░░░░░▌     ▐░░▌      ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌      ▐░░░░░░░░░░░▌
 ▀▀▀▀█░█▀▀▀▀      ▐░▌░▌     ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌     ▐░█▀▀▀▀▀▀▀█░▌
@@ -27,12 +28,12 @@ puts '
 ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀       ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀        ▀
 
 
-'
+".colorize(:light_blue)
 puts 'What is your zipcode?'
-zip = gets.strip.downcase
+zip = gets.strip.to_s
 puts 'Are you a dog or cat person?'
 gets.strip
-puts "Let's not get ahead of ourselves just yet. Do you live an a house or an apartment?"
+puts "Let's not get ahead of ourselves just yet. Do you live an a house or an apartment?".colorize(:red)
 
  living = gets.strip.downcase
   if living == "house"
@@ -53,7 +54,7 @@ end
 
   if gender == "ladies"
    puts "Great! Check out this lonely lady cat who's just waiting for you to adopt her!"
-   FindPet.new("cat", "L", "Adult", "F", "78751").random_animal
+   FindPet.new("cat", "L", "Adult", "F", zip).random_animal
 
   elsif gender == "gents"
    puts "Awesome, this old dude is just waiting for your snuggles."
